@@ -3,4 +3,4 @@
   调用方式：$.verify(value)     //value = obj.val();
 
 
-1、idcard2.js 函数引用方法验证身份证
+2、idcard2.js 函数引用方法验证身份证
