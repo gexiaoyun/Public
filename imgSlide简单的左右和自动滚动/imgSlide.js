@@ -37,6 +37,8 @@
                 var defaults = {
                     slideDiv: '#bigImg',
                     speed:30
+                    //prevBtn:'.prev',
+                    //nextBtn:'.next'
                 };
                 settings = $.extend({}, defaults, option);
 
