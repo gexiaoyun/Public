@@ -36,41 +36,48 @@
                 var that = $(this),settings;
                 var defaults = {
                     slideDiv: '#bigImg',
-                    speed:30
-                    //prevBtn:'.prev',
-                    //nextBtn:'.next'
+                    speed:30,
+                    prevBtn:'.prev',
+                    nextBtn:'.next'
                 };
                 settings = $.extend({}, defaults, option);
 
                 var slideDiv = $(settings.slideDiv),
-                    slideSpeed = settings.speed;
+                    slideSpeed = settings.speed,
+                    prev = $(settings.prevBtn),
+                    next = $(settings.nextBtn);
 
                 var thisWidth = that.width(),
-                    imgWidth = slideDiv.width();
+                    imgWidth;
+
 
                 var LeftTimer = null,
                     rightTimer = null,
                     autoPlayTime = null;
 
+                //设置一个数，为了每次移动存入新值
+                var oldWidth = 0;
+
+                //进来后默认自动播放
                 autoPlay();
 
-                $('#bigImg').hover(function(){
+                slideDiv.hover(function(){
                     clearInterval(autoPlayTime);
                 },function(){
                     autoPlay()
                 });
 
-                $('.left-btn').hover(function(){
+                prev.hover(function(){
                     clearInterval(autoPlayTime);
-                    LeftTimer = setInterval(function(){leftMove(slideDiv,imgWidth)},slideSpeed);
+                    LeftTimer = setInterval(function(){leftMove(slideDiv)},slideSpeed);
                 },function(){
                     clearInterval(LeftTimer);
                     autoPlay();
                 });
 
-                $('.right-btn').hover(function(){
+                next.hover(function(){
                     clearInterval(autoPlayTime);
-                    rightTimer = setInterval(function(){rightMove(slideDiv,imgWidth)},slideSpeed)
+                    rightTimer = setInterval(function(){rightMove(slideDiv)},slideSpeed)
                 },function(){
                     clearInterval(rightTimer);
                     autoPlay();
@@ -79,36 +86,42 @@
 
                 //自动播放
                 function autoPlay(){
-                    autoPlayTime = setInterval(function(){rightMove(slideDiv,imgWidth)},slideSpeed)
+                    autoPlayTime = setInterval(function(){rightMove(slideDiv)},slideSpeed)
                 };
 
                 //向左移动
-                function leftMove(obj,imgWidth){
-                    var bigImgLSet = slideDiv.position().left;
-                    var nowLeft = bigImgLSet + imgWidth;
-                    if(bigImgLSet == 0){
-                        obj.css('left',0)
-                    }else if(nowLeft < imgWidth){
-                        obj.css('left',bigImgLSet+10)
+                function leftMove(obj){
+                    imgWidth = slideDiv.width();
+                    if(oldWidth == imgWidth){
+                        var bigImgLSet = slideDiv.position().left;
+                        var nowLeft = bigImgLSet + oldWidth;
+                        if(bigImgLSet == 0){
+                            obj.css('left',0)
+                        }else if(nowLeft < oldWidth){
+                            obj.css('left',bigImgLSet+10)
+                        }
                     }
-                }
+                    oldWidth = imgWidth;
+
+                };
 
                 //向右移动
-                function rightMove(obj,imgWidth){
-                    var bigImgLSet = slideDiv.position().left;
-                    var objRight = -(imgWidth - thisWidth);
-                    if(bigImgLSet > objRight ){
-                        obj.css('left',bigImgLSet-10)
-                    }else if(bigImgLSet == objRight){
-                        obj.css('left',objRight)
-                    };
+                function rightMove(obj){
+                    imgWidth = slideDiv.width();
+                    if(oldWidth == imgWidth){
+                        var bigImgLSet = slideDiv.position().left;
+                        var objRight = -(oldWidth - thisWidth);
+
+                        if(bigImgLSet > objRight ){
+                            obj.css('left',bigImgLSet-10)
+                        }else if(bigImgLSet == objRight){
+                            obj.css('left',objRight)
+                        };
+                    }
+                    oldWidth = imgWidth;
                 }
             });
         }
     };
-
-
-
-
 })(jQuery);
 
