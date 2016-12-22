@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af1324be-9b70-450a-96c0-8f530967df4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imgSlide简单的左右和自动滚动/indexMp3.html" afterPath="$PROJECT_DIR$/imgSlide简单的左右和自动滚动/indexMp3.html" />
-    </list>
+    <list default="true" id="af1324be-9b70-450a-96c0-8f530967df4b" name="Default" comment="" />
     <ignored path="gxyPublic.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -139,7 +137,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BtWebsite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cicheng" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
@@ -202,12 +200,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1479369105521</updated>
-      <workItem from="1479369106837" duration="8092000" />
+      <workItem from="1479369106837" duration="8288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8092000" />
+    <option name="totallyTimeSpent" value="8288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
